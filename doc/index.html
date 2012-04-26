@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.5
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><h1>EZPaypal</h1>
+
+<p>Paypal express checkout plugin.   </p>
+
+<h2>How to use it</h2>
+
+<h3>Configuration</h3>
+
+<h4>Add Initializer</h4>
+
+<p>Add ~/config/initializers/paypal_setup.rb</p>
+
+<pre class="code ruby"><code><span class='comment'># Load config
+</span><span class='id identifier rubyid_paypal_config_path'>paypal_config_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>../../paypal.yml</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_paypal_config_file'>paypal_config_file</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_paypal_config_path'>paypal_config_path</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_paypal_config'>paypal_config</span> <span class='op'>=</span> <span class='const'>YAML</span><span class='op'>::</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_paypal_config_file'>paypal_config_file</span><span class='rparen'>)</span>
+
+<span class='comment'># Setup config
+</span><span class='id identifier rubyid_option'>option</span> <span class='op'>=</span>
+<span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>user</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_paypal_config'>paypal_config</span><span class='lbracket'>[</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>login</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_paypal_config'>paypal_config</span><span class='lbracket'>[</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>signature</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_paypal_config'>paypal_config</span><span class='lbracket'>[</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>signature</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mode</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>development</span><span class='tstring_end'>&quot;</span></span> <span class='op'>||</span> <span class='const'>Rails</span><span class='period'>.</span><span class='id identifier rubyid_env'>env</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>test</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sandbox</span><span class='tstring_end'>&quot;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>live</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>version</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>84.0</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span>
+<span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>Setup</span><span class='lparen'>(</span><span class='id identifier rubyid_option'>option</span><span class='rparen'>)</span>
+</code></pre>
+
+<h4>Add Configuration File</h4>
+
+<p>Add ~/config/paypal.yml</p>
+
+<pre class="code ruby"><code>development:
+  login: &quot;xxxx.xxxx.com&quot;
+  password: &quot;xxxxxx&quot;
+  signature: &quot;xxxx.xxxxxxxxxxxxx&quot;
+
+test:
+  login: &quot;xxxx.xxxx.com&quot;
+  password: &quot;xxxxxx&quot;
+  signature: &quot;xxxx.xxxxxxxxxxxxx&quot;
+
+production:
+  login: &quot;xxxx.xxxx.com&quot;
+  password: &quot;xxxxxx&quot;
+  signature: &quot;xxxx.xxxxxxxxxxxxx&quot;
+</code></pre>
+
+<h3>Non-recurring purchase</h3>
+
+<h4>Request for token</h4>
+
+<pre class="code ruby"><code><span class='comment'># create cart and add items to it
+</span><span class='id identifier rubyid_cart'>cart</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Cart</span><span class='op'>::</span><span class='const'>OneTimePurchaseCart</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_item'>item</span> <span class='op'>=</span> 
+<span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Item name</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>item_code</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Item code</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>description</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>xxx, xxxxxx</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>amount</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>quantity</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span>
+<span class='id identifier rubyid_cart'>cart</span><span class='period'>.</span><span class='id identifier rubyid_addItem'>addItem</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_shipping'>shipping</span> <span class='op'>=</span> 
+<span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>John Smith</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>street</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>123 xx Rd</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>city</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>xxxxx</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>state</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>xx</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>country</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>US</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>zip</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>11234</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>phone</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>123-456-7890</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span>
+<span class='id identifier rubyid_cart'>cart</span><span class='period'>.</span><span class='id identifier rubyid_setupShippingInfo'>setupShippingInfo</span><span class='lparen'>(</span><span class='id identifier rubyid_shipping'>shipping</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_summary'>summary</span> <span class='op'>=</span> 
+<span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>subtotal</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tax</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.5</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shipping</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>handling</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shipping_discount</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>insurance</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>total</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3.5</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span>
+<span class='id identifier rubyid_cart'>cart</span><span class='period'>.</span><span class='id identifier rubyid_setupSummary'>setupSummary</span><span class='lparen'>(</span><span class='id identifier rubyid_summary'>summary</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_return_url'>return_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://127.0.0.1:3000/ec_return</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_cancel_url'>cancel_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://127.0.0.1:3000/ec_cancel</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='comment'># send cart to request for token
+</span><span class='id identifier rubyid_response_origin'>response_origin</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='const'>SetupExpressCheckout</span><span class='lparen'>(</span><span class='id identifier rubyid_cart'>cart</span><span class='comma'>,</span> <span class='id identifier rubyid_return_url'>return_url</span><span class='comma'>,</span> <span class='id identifier rubyid_cancel_url'>cancel_url</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_response_origin'>response_origin</span><span class='rparen'>)</span>
+
+<span class='comment'># get checkout url
+</span><span class='id identifier rubyid_checkout_url'>checkout_url</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_getCheckoutURL'>getCheckoutURL</span><span class='lparen'>(</span><span class='rparen'>)</span>
+</code></pre>
+
+<h4>Handle success purchase</h4>
+
+<pre class="code ruby"><code><span class='comment'># verify query string
+</span><span class='id identifier rubyid_d_token'>d_token</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>token</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_d_payerid'>d_payerid</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PayerID</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+
+<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+
+<span class='comment'># confirm purchase 
+</span><span class='id identifier rubyid_confirm_purchase_origin'>confirm_purchase_origin</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_confirmPurchase'>confirmPurchase</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_confirm_response'>confirm_response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_confirm_purchase_origin'>confirm_purchase_origin</span><span class='rparen'>)</span>
+
+<span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_confirm_response'>confirm_response</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span><span class='rparen'>)</span>
+    <span class='comment'># handle success purchase ...
+</span>    <span class='id identifier rubyid_transaction_id'>transaction_id</span> <span class='op'>=</span> <span class='id identifier rubyid_confirm_response'>confirm_response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PAYMENTINFO_0_TRANSACTIONID</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='kw'>else</span>
+    <span class='comment'># handle failed purchase ...
+</span><span class='kw'>end</span>
+</code></pre>
+
+<h3>Recurring purchase</h3>
+
+<h4>Request for token</h4>
+
+<pre class="code ruby"><code><span class='comment'># create cart and add item to it
+</span><span class='id identifier rubyid_cart'>cart</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Cart</span><span class='op'>::</span><span class='const'>RecurringPurchaseCart</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_item'>item</span> <span class='op'>=</span> 
+<span class='lbrace'>{</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>item_code</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Item code</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unit_price</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>quantity</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>amount</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span>
+<span class='id identifier rubyid_cart'>cart</span><span class='period'>.</span><span class='id identifier rubyid_setupAgreement'>setupAgreement</span><span class='lparen'>(</span><span class='id identifier rubyid_item'>item</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_return_url'>return_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://127.0.0.1:3000/ec_return</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_cancel_url'>cancel_url</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://127.0.0.1:3000/ec_cancel</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='comment'># send cart to request for token
+</span><span class='id identifier rubyid_response_origin'>response_origin</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='const'>SetupExpressCheckout</span><span class='lparen'>(</span><span class='id identifier rubyid_cart'>cart</span><span class='comma'>,</span> <span class='id identifier rubyid_return_url'>return_url</span><span class='comma'>,</span> <span class='id identifier rubyid_cancel_url'>cancel_url</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_response_origin'>response_origin</span><span class='rparen'>)</span>
+
+<span class='comment'># get checkout url
+</span><span class='id identifier rubyid_checkout_url'>checkout_url</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_getCheckoutURL'>getCheckoutURL</span><span class='lparen'>(</span><span class='rparen'>)</span>
+</code></pre>
+
+<h4>Handle success purchase</h4>
+
+<pre class="code ruby"><code><span class='comment'># verify query string
+</span><span class='id identifier rubyid_d_token'>d_token</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>token</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_d_payerid'>d_payerid</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PayerID</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+
+<span class='comment'># get checkout details
+</span><span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='const'>GetCheckoutDetails</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TOKEN</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_checkout_details'>checkout_details</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span><span class='rparen'>)</span>
+
+<span class='comment'># create and confirm recurring profile
+</span><span class='id identifier rubyid_profile'>profile</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Cart</span><span class='op'>::</span><span class='const'>RecurringProfile</span><span class='period'>.</span><span class='const'>ConvertFromCheckoutDetails</span><span class='lparen'>(</span><span class='id identifier rubyid_checkout_details'>checkout_details</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_confirm_response'>confirm_response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='const'>CreateRecurringProfile</span><span class='lparen'>(</span><span class='id identifier rubyid_profile'>profile</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+<span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_confirm_response'>confirm_response</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span><span class='rparen'>)</span>
+    <span class='comment'># handle success purchase ...
+</span>    <span class='id identifier rubyid_profile_id'>profile_id</span> <span class='op'>=</span> <span class='id identifier rubyid_confirm_response'>confirm_response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PROFILEID</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+<span class='kw'>else</span>
+    <span class='comment'># handle failed purchase ...
+</span><span class='kw'>end</span>
+</code></pre>
+
+<h2>Installation</h2>
+
+<p>Add the following line to rails &quot;Gemfile&quot;</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ez_paypal</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>then execute</p>
+
+<pre class="code ruby"><code>$ bundle install
+</code></pre>
+
+<p>See <a href="http://rubygems.org/gems/ez_paypal" title="EZPaypal RubyGem Page">http://rubygems.org/gems/ez_paypal</a> for more details</p>
+
+<h2>Authors</h2>
+
+<p>Tianyu Huang</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Thu Apr 26 01:34:32 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

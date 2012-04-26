@@ -1,0 +1,926 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: EZPaypal::Request
+  
+    &mdash; Documentation by YARD 0.7.5
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../EZPaypal.html" title="EZPaypal (module)">EZPaypal</a></span></span>
+     &raquo; 
+    <span class="title">Request</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: EZPaypal::Request
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/core/request.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ConfirmPurchase-class_method" title="ConfirmPurchase (class method)">+ (Hash) <strong>ConfirmPurchase</strong>(token, payer_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Confirm payment, only works if token and payer_id is obtained.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#CreateRecurringProfile-class_method" title="CreateRecurringProfile (class method)">+ (Hash) <strong>CreateRecurringProfile</strong>(profile) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a recurring profile for a customer.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#GetCheckoutDetails-class_method" title="GetCheckoutDetails (class method)">+ (Hash) <strong>GetCheckoutDetails</strong>(token) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get current checkout details, only works if token has obtained.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#GetCheckoutURL-class_method" title="GetCheckoutURL (class method)">+ (String) <strong>GetCheckoutURL</strong>(token) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get current checkout url to redirect user to, only works if token has
+obtained.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#Refund-class_method" title="Refund (class method)">+ (Hash) <strong>Refund</strong>(transaction_id, refund_type, amount, currency, note) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Refund money to a transaction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#SetupExpressCheckout-class_method" title="SetupExpressCheckout (class method)">+ (Hash) <strong>SetupExpressCheckout</strong>(cart, returnUrl, cancelUrl) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Setup express checkout cart.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="ConfirmPurchase-class_method">
+  
+    + (<tt>Hash</tt>) <strong>ConfirmPurchase</strong>(token, payer_id) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Confirm payment, only works if token and payer_id is obtained</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>payer_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>payment details associated with the given token and payer_id</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/core/request.rb', line 74</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='const'>ConfirmPurchase</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='comma'>,</span> <span class='id identifier rubyid_payer_id'>payer_id</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_payer_id'>payer_id</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+    <span class='kw'>begin</span>
+      <span class='comment'># Setup default options
+</span>      <span class='id identifier rubyid_setting'>setting</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>Setting</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
+      <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>METHOD</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DoExpressCheckoutPayment</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PAYMENTREQUEST_0_PAYMENTACTION</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Sale</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TOKEN</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_token'>token</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>PAYERID</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_payer_id'>payer_id</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+
+
+      <span class='comment'># Get checkout details
+</span>      <span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Request</span><span class='period'>.</span><span class='const'>GetCheckoutDetails</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
+        <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='const'>CGI</span><span class='op'>::</span><span class='id identifier rubyid_unescape'>unescape</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='const'>CGI</span><span class='op'>::</span><span class='id identifier rubyid_unescape'>unescape</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># Submit checkout request to confirm the purchase
+</span>      <span class='id identifier rubyid_payment_response_origin'>payment_response_origin</span> <span class='op'>=</span> <span class='const'>HashWithIndifferentAccess</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='rparen'>)</span>
+      <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ACK</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_setting'>setting</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertHashToQueryString</span><span class='lparen'>(</span><span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_payment_response_origin'>payment_response_origin</span> <span class='op'>=</span> <span class='const'>EZHttp</span><span class='period'>.</span><span class='const'>Send</span><span class='lparen'>(</span><span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>EndPoint</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>express_checkout_endpoint</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_query_string'>query_string</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># Convert response to Hash to return
+</span>      <span class='id identifier rubyid_payment_response'>payment_response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertParamToHash</span><span class='lparen'>(</span><span class='id identifier rubyid_payment_response_origin'>payment_response_origin</span><span class='rparen'>)</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_payment_response'>payment_response</span>
+
+    <span class='kw'>rescue</span>
+      <span class='id identifier rubyid_throw'>throw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error occured in ConfirmPurchase: TOKEN=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token'>token</span><span class='rbrace'>}</span><span class='tstring_content'>, PAYERID=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_payer_id'>payer_id</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="CreateRecurringProfile-class_method">
+  
+    + (<tt>Hash</tt>) <strong>CreateRecurringProfile</strong>(profile) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a recurring profile for a customer</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>profile</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Cart/RecurringProfile.html" title="EZPaypal::Cart::RecurringProfile (class)">EZPaypal::Cart::RecurringProfile</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>including all the config for the recurring profile</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>profile creation confirmation from paypal</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/core/request.rb', line 114</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='const'>CreateRecurringProfile</span><span class='lparen'>(</span><span class='id identifier rubyid_profile'>profile</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='comment'># Setup default options
+</span>    <span class='id identifier rubyid_setting'>setting</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>Setting</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
+    <span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>METHOD</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CreateRecurringPaymentsProfile</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
+    <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_default'>default</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_profile'>profile</span><span class='rparen'>)</span>
+
+    <span class='comment'># Http call to create profile and get response
+</span>    <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertHashToQueryString</span><span class='lparen'>(</span><span class='id identifier rubyid_setting'>setting</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_profile_response_origin'>profile_response_origin</span> <span class='op'>=</span> <span class='const'>EZHttp</span><span class='period'>.</span><span class='const'>Send</span><span class='lparen'>(</span><span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>EndPoint</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>express_checkout_endpoint</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_query_string'>query_string</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+
+    <span class='comment'># Convert response to Hash to return
+</span>    <span class='id identifier rubyid_profile_response'>profile_response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertParamToHash</span><span class='lparen'>(</span><span class='id identifier rubyid_profile_response_origin'>profile_response_origin</span><span class='rparen'>)</span>
+
+    <span class='kw'>return</span> <span class='id identifier rubyid_profile_response'>profile_response</span>
+  <span class='kw'>rescue</span>
+    <span class='id identifier rubyid_throw'>throw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error occured in CreateRecurringProfile</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="GetCheckoutDetails-class_method">
+  
+    + (<tt>Hash</tt>) <strong>GetCheckoutDetails</strong>(token) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get current checkout details, only works if token has obtained</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>checkout details associated with the given token</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/core/request.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='const'>GetCheckoutDetails</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span><span class='rparen'>)</span>
+    <span class='kw'>begin</span>
+      <span class='comment'># Setup default options
+</span>      <span class='id identifier rubyid_setting'>setting</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>Setting</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
+      <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>METHOD</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GetExpressCheckoutDetails</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TOKEN</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_token'>token</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+
+      <span class='comment'># Get checkout details
+</span>      <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertHashToQueryString</span><span class='lparen'>(</span><span class='id identifier rubyid_setting'>setting</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span> <span class='op'>=</span> <span class='const'>EZHttp</span><span class='period'>.</span><span class='const'>Send</span><span class='lparen'>(</span><span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>EndPoint</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>express_checkout_endpoint</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_query_string'>query_string</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+
+      <span class='comment'># Convert checkout details to Hash to return
+</span>      <span class='id identifier rubyid_checkout_details'>checkout_details</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertParamToHash</span><span class='lparen'>(</span><span class='id identifier rubyid_checkout_details_origin'>checkout_details_origin</span><span class='rparen'>)</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_checkout_details'>checkout_details</span>
+    <span class='kw'>rescue</span>
+      <span class='id identifier rubyid_throw'>throw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error occured in GetExpressCheckoutDetails: token=</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_token'>token</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="GetCheckoutURL-class_method">
+  
+    + (<tt>String</tt>) <strong>GetCheckoutURL</strong>(token) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Get current checkout url to redirect user to, only works if token has
+obtained</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>paypal checkout url to redirect user to</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/core/request.rb', line 41</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='const'>GetCheckoutURL</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+  <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>EndPoint</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>express_checkout_url</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;token=</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_token'>token</span> <span class='kw'>unless</span> <span class='id identifier rubyid_token'>token</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="Refund-class_method">
+  
+    + (<tt>Hash</tt>) <strong>Refund</strong>(transaction_id, refund_type, amount, currency, note) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Refund money to a transaction</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>all</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/core/request.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='const'>Refund</span><span class='lparen'>(</span><span class='id identifier rubyid_transaction_id'>transaction_id</span><span class='comma'>,</span> <span class='id identifier rubyid_refund_type'>refund_type</span><span class='comma'>,</span> <span class='id identifier rubyid_amount'>amount</span><span class='comma'>,</span> <span class='id identifier rubyid_currency'>currency</span><span class='comma'>,</span> <span class='id identifier rubyid_note'>note</span><span class='rparen'>)</span>
+  <span class='comment'># Setup default options
+</span>  <span class='id identifier rubyid_setting'>setting</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>Setting</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>METHOD</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RefundTransaction</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>TRANSACTIONID</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_transaction_id'>transaction_id</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>REFUNDTYPE</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_refund_type'>refund_type</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Partial</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>AMT</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_amount'>amount</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CURRENCYCODE</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_currency'>currency</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>USD</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>NOTE</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_note'>note</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+
+  <span class='comment'># Http call to create profile and get response
+</span>  <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertHashToQueryString</span><span class='lparen'>(</span><span class='id identifier rubyid_setting'>setting</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_refund_response_origin'>refund_response_origin</span> <span class='op'>=</span> <span class='const'>EZHttp</span><span class='period'>.</span><span class='const'>Send</span><span class='lparen'>(</span><span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>EndPoint</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>express_checkout_endpoint</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_query_string'>query_string</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+
+  <span class='comment'># Convert response to Hash to return
+</span>  <span class='id identifier rubyid_profile_response'>profile_response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertParamToHash</span><span class='lparen'>(</span><span class='id identifier rubyid_refund_response_origin'>refund_response_origin</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="SetupExpressCheckout-class_method">
+  
+    + (<tt>Hash</tt>) <strong>SetupExpressCheckout</strong>(cart, returnUrl, cancelUrl) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Setup express checkout cart</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>cart</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Cart/OneTimePurchaseCart.html" title="EZPaypal::Cart::OneTimePurchaseCart (class)">EZPaypal::Cart::OneTimePurchaseCart</a></span> / <span class='object_link'><a href="Cart/RecurringPurchaseCart.html" title="EZPaypal::Cart::RecurringPurchaseCart (class)">EZPaypal::Cart::RecurringPurchaseCart</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>returnUrl</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cancelUrl</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>response = &quot;TOKEN&quot;</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/core/request.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='const'>SetupExpressCheckout</span> <span class='lparen'>(</span><span class='id identifier rubyid_cart'>cart</span><span class='comma'>,</span> <span class='id identifier rubyid_returnUrl'>returnUrl</span><span class='comma'>,</span> <span class='id identifier rubyid_cancelUrl'>cancelUrl</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+    <span class='comment'># Setup default options
+</span>    <span class='id identifier rubyid_setting'>setting</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>Setting</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
+    <span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>METHOD</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SetExpressCheckout</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+               <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RETURNURL</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_returnUrl'>returnUrl</span><span class='comma'>,</span>
+               <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CANCELURL</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_cancelUrl'>cancelUrl</span>
+    <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_setting'>setting</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_default'>default</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_cart'>cart</span><span class='rparen'>)</span>
+
+    <span class='comment'># Get setup express checkout details
+</span>    <span class='id identifier rubyid_query_string'>query_string</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertHashToQueryString</span><span class='lparen'>(</span><span class='id identifier rubyid_setting'>setting</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_setup_ec_response_origin'>setup_ec_response_origin</span> <span class='op'>=</span> <span class='const'>EZHttp</span><span class='period'>.</span><span class='const'>Send</span><span class='lparen'>(</span><span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='const'>EndPoint</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>express_checkout_endpoint</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_query_string'>query_string</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>post</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span>
+
+    <span class='comment'># Convert express checkout details to Hash to return
+</span>    <span class='id identifier rubyid_setup_ec_response'>setup_ec_response</span> <span class='op'>=</span> <span class='const'>EZPaypal</span><span class='op'>::</span><span class='const'>Helper</span><span class='period'>.</span><span class='const'>ConvertParamToHash</span><span class='lparen'>(</span><span class='id identifier rubyid_setup_ec_response_origin'>setup_ec_response_origin</span><span class='rparen'>)</span>
+
+    <span class='kw'>return</span> <span class='id identifier rubyid_setup_ec_response'>setup_ec_response</span>
+  <span class='kw'>rescue</span>
+    <span class='id identifier rubyid_throw'>throw</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Error occured in SetupExpressCheckout</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Thu Apr 26 01:34:33 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
