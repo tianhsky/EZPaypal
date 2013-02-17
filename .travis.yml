@@ -2,9 +2,10 @@ language: ruby
 rvm:
   - 1.9.3
 before_script: 
- - gem install cucumber
- - gem install activesupport
  - gem install json
+ - gem install activesupport
  - gem install ez_http
+ - gem install rspec
+ - gem install cucumber
 script:
  - rake
