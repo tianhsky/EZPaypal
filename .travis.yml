@@ -3,5 +3,8 @@ rvm:
   - 1.9.3
 before_script: 
  - gem install cucumber
+ - gem install activesupport
+ - gem install json
+ - gem install ez_http
 script:
  - rake

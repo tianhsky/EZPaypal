@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tianhsky/EZPaypal.png?branch=master)](https://travis-ci.org/tianhsky/EZPaypal)
+
 # EZPaypal
 
 Paypal express checkout plugin.   
