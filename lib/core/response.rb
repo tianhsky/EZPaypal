@@ -53,6 +53,10 @@ module EZPaypal
 
       return error_messages
     end
+    
+    def getToken
+      self["TOKEN"]
+    end
 
     # Get current checkout url to redirect user to, only works if token is obtained
     # @return [String] paypal checkout url to redirect user to
