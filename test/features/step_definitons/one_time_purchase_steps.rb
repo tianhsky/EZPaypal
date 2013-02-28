@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 begin require 'rspec/expectations'; rescue LoadError; require 'spec/expectations'; end 
 require 'cucumber/formatter/unicode'
 
