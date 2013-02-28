@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tianhsky/EZPaypal.png?branch=master)](https://travis-ci.org/tianhsky/EZPaypal)
 [![Code Climate](https://codeclimate.com/github/tianhsky/EZPaypal.png)](https://codeclimate.com/github/tianhsky/EZPaypal)
+[![Dependency Status](https://gemnasium.com/tianhsky/EZPaypal.png)](https://gemnasium.com/tianhsky/EZPaypal)
 [![Coverage Status](https://coveralls.io/repos/tianhsky/EZPaypal/badge.png?branch=master)](https://coveralls.io/r/tianhsky/EZPaypal)
 
 Paypal express checkout plugin.   
